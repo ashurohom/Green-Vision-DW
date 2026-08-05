@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_partner_form_inherit_tally" model="ir.ui.view">
+        <field name="name">res.partner.form.inherit.tally</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <!-- Add buttons inside the header -->
+            <xpath expr="//sheet" position="before">
+                <header>
+                    <button name="action_export_to_tally" type="object" string="Export to Tally" class="oe_highlight"/>
+                </header>
+            </xpath>
+            
+            <xpath expr="//notebook" position="inside">
+                <page string="Tally Integration">
+                    <group>
+                        <group>
+                            <field name="tally_id" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="last_sync" readonly="1"/>
+                            <field name="sync_status" readonly="1"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

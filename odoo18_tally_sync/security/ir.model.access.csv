@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_tally_configuration,tally.configuration.access,model_tally_configuration,base.group_user,1,1,1,1
+access_tally_sync_log,tally.sync.log.access,model_tally_sync_log,base.group_user,1,1,1,1
+access_tally_manual_sync,tally.manual.sync.access,model_tally_manual_sync,base.group_user,1,1,1,1

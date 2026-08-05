@@ -1,0 +1,28 @@
+{
+    'name': 'Tally Integration Framework',
+    'version': '18.0.1.0.0',
+    'summary': 'Reusable Tally Integration Framework for Odoo 18',
+    'description': """
+        A generic and reusable Tally Integration Framework for synchronizing data 
+        between Odoo and Tally ERP. 
+        Supports:
+        - Customer Import/Export
+        - Vendor Import/Export
+    """,
+    'category': 'Extra Tools',
+    'author': 'Expert Odoo Developer',
+    'depends': ['base', 'contacts'],
+    'data': [
+        'security/ir.model.access.csv',
+        'data/cron.xml',
+        'views/menu.xml',
+        'views/tally_configuration_views.xml',
+        'views/sync_log_views.xml',
+        'views/partner_views.xml',
+        'views/manual_sync_views.xml',
+    ],
+    'installable': True,
+    'application': True,
+    'auto_install': False,
+    'license': 'LGPL-3',
+}

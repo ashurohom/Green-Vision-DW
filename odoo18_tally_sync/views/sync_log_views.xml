@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_tally_sync_log_form" model="ir.ui.view">
+        <field name="name">tally.sync.log.form</field>
+        <field name="model">tally.sync.log</field>
+        <field name="arch" type="xml">
+            <form string="Sync Log" create="false" edit="false">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="date"/>
+                            <field name="operation"/>
+                            <field name="model"/>
+                        </group>
+                        <group>
+                            <field name="status"/>
+                            <field name="duration"/>
+                            <field name="user_id"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Payloads">
+                            <group>
+                                <field name="request" widget="text"/>
+                                <field name="response" widget="text"/>
+                            </group>
+                        </page>
+                        <page string="Error Information" invisible="status == 'success'">
+                            <group>
+                                <field name="error_message"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_tally_sync_log_tree" model="ir.ui.view">
+        <field name="name">tally.sync.log.tree</field>
+        <field name="model">tally.sync.log</field>
+        <field name="arch" type="xml">
+            <list string="Sync Logs" create="false" edit="false" decoration-danger="status=='failed'" decoration-success="status=='success'">
+                <field name="date"/>
+                <field name="operation"/>
+                <field name="model"/>
+                <field name="status"/>
+                <field name="duration"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_tally_sync_log_search" model="ir.ui.view">
+        <field name="name">tally.sync.log.search</field>
+        <field name="model">tally.sync.log</field>
+        <field name="arch" type="xml">
+            <search string="Sync Logs">
+                <field name="model"/>
+                <field name="operation"/>
+                <field name="status"/>
+                <filter string="Failed" name="failed" domain="[('status', '=', 'failed')]"/>
+                <filter string="Success" name="success" domain="[('status', '=', 'success')]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Operation" name="group_operation" context="{'group_by':'operation'}"/>
+                    <filter string="Model" name="group_model" context="{'group_by':'model'}"/>
+                    <filter string="Status" name="group_status" context="{'group_by':'status'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_tally_sync_log" model="ir.actions.act_window">
+        <field name="name">Sync Logs</field>
+        <field name="res_model">tally.sync.log</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_tally_sync_log_search"/>
+    </record>
+
+    <menuitem id="menu_tally_sync_logs_action" 
+              name="API Logs" 
+              parent="menu_tally_sync_logs" 
+              action="action_tally_sync_log" 
+              sequence="10"/>
+</odoo>
