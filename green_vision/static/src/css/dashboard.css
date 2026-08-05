@@ -1,0 +1,203 @@
+/* Global Container */
+.gv-dashboard-container {
+    background-color: #f8fafc;
+    min-height: 100%;
+    height: 100%;
+    overflow-y: auto;
+    font-family: 'Inter', 'Roboto', sans-serif;
+    padding-bottom: 50px;
+}
+
+/* Premium Banner */
+.gv-dashboard-banner {
+    background: linear-gradient(135deg, #10b981, #047857);
+    border-radius: 0 0 24px 24px;
+    box-shadow: 0 10px 20px rgba(16, 185, 129, 0.15);
+    margin-bottom: -50px !important;
+    padding-bottom: 100px !important;
+    position: relative;
+    overflow: hidden;
+}
+
+.gv-dashboard-banner::after {
+    content: '';
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MCIgaGVpZ2h0PSI4MCI+CjxjaXJjbGUgY3g9IjQwIiBjeT0iNDAiIHI9IjQwIiBmaWxsPSIjZmZmZmZmIiBmaWxsLW9wYWNpdHk9IjAuMDUiLz4KPC9zdmc+') repeat;
+    opacity: 0.3;
+}
+
+.gv-banner-logo {
+    max-height: 90px;
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+}
+
+.gv-dashboard-title {
+    font-weight: 800;
+    font-size: 2.2rem;
+    letter-spacing: -0.5px;
+}
+
+.gv-dashboard-subtitle {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+.gv-main-content {
+    position: relative;
+    z-index: 10;
+}
+
+/* Card Styling */
+.gv-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    border: 1px solid rgba(0,0,0,0.02);
+    overflow: hidden;
+}
+
+.gv-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+}
+
+.gv-card-content {
+    padding: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.gv-card-footer {
+    background: #f8fafc;
+    padding: 12px 24px;
+    font-size: 0.85rem;
+    color: #64748b;
+    border-top: 1px solid #f1f5f9;
+    font-weight: 600;
+}
+
+/* Gradients for Card Left Borders */
+.gv-card-sales { border-left: 5px solid #3b82f6; }
+.gv-card-revenue { border-left: 5px solid #10b981; }
+.gv-card-purchases { border-left: 5px solid #f59e0b; }
+.gv-card-customers { border-left: 5px solid #8b5cf6; }
+.gv-card-vendors { border-left: 5px solid #ef4444; }
+.gv-card-products { border-left: 5px solid #06b6d4; }
+.gv-card-expenses { border-left: 5px solid #f43f5e; }
+
+/* Icon Wrapper */
+.gv-card-icon-wrapper {
+    position: relative;
+}
+
+.gv-card-icon {
+    font-size: 1.8rem;
+    width: 65px;
+    height: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
+    transition: transform 0.3s ease;
+}
+
+.gv-card:hover .gv-card-icon {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.gv-card-sales .gv-card-icon { color: #3b82f6; background: linear-gradient(135deg, #eff6ff, #dbeafe); }
+.gv-card-revenue .gv-card-icon { color: #10b981; background: linear-gradient(135deg, #ecfdf5, #d1fae5); }
+.gv-card-purchases .gv-card-icon { color: #f59e0b; background: linear-gradient(135deg, #fffbeb, #fef3c7); }
+.gv-card-customers .gv-card-icon { color: #8b5cf6; background: linear-gradient(135deg, #f5f3ff, #ede9fe); }
+.gv-card-vendors .gv-card-icon { color: #ef4444; background: linear-gradient(135deg, #fef2f2, #fee2e2); }
+.gv-card-products .gv-card-icon { color: #06b6d4; background: linear-gradient(135deg, #ecfeff, #cffafe); }
+.gv-card-expenses .gv-card-icon { color: #f43f5e; background: linear-gradient(135deg, #fff1f2, #ffe4e6); }
+
+/* Typography */
+.gv-card-value {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.gv-card-label {
+    font-size: 0.9rem;
+    color: #64748b;
+    margin: 0 0 8px 0;
+    font-weight: 600;
+}
+
+/* Premium Table Styling */
+.gv-table-container {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(0,0,0,0.02);
+}
+
+.gv-table-title {
+    font-weight: 800;
+    color: #0f172a;
+}
+
+.gv-btn-premium {
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+.gv-btn-premium:hover {
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
+}
+
+.gv-table th {
+    font-weight: 700;
+    color: #64748b;
+    background-color: #f8fafc;
+    border-bottom: 2px solid #e2e8f0;
+    padding: 15px;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.gv-table td {
+    padding: 15px;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.gv-table tbody tr {
+    transition: background-color 0.2s;
+}
+
+.gv-table tbody tr:hover {
+    background-color: #f8fafc;
+}
+
+.gv-table-icon-circle {
+    width: 40px;
+    height: 40px;
+    background: #eff6ff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gv-badge {
+    padding: 6px 12px;
+    font-weight: 600;
+    font-size: 0.8rem;
+    text-transform: capitalize;
+}

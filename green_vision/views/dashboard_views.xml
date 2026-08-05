@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Define the Client Action that loads our OWL component -->
+    <record id="action_green_vision_dashboard" model="ir.actions.client">
+        <field name="name">Green Vision Dashboard</field>
+        <field name="tag">green_vision.dashboard</field>
+    </record>
+
+    <!-- Create a Dashboard Menu Item -->
+    <menuitem id="menu_gv_dashboard"
+              name="Dashboard"
+              action="action_green_vision_dashboard"
+              sequence="1"/>
+</odoo>

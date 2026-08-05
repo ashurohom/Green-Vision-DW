@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="green_vision.Dashboard" owl="1">
+        <div class="gv-dashboard-container">
+            <!-- Premium Banner -->
+            <div class="gv-dashboard-banner p-5 mb-5 text-white">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h1 class="gv-dashboard-title mb-2">Welcome to Green Vision</h1>
+                        <p class="gv-dashboard-subtitle mb-0">Here's what's happening with your business today.</p>
+                    </div>
+                    <div class="gv-banner-illustration d-none d-md-block">
+                        <img src="/green_vision/static/src/img/greenvision-main-logo.png" alt="Green Vision" class="gv-banner-logo"/>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="container-fluid px-4 gv-main-content">
+                <div class="row g-4 mb-5">
+                    <!-- Total Sales -->
+                    <div class="col-xl-4 col-md-6">
+                        <div class="gv-card gv-card-sales" t-on-click="openSalesOrders">
+                            <div class="gv-card-content">
+                                <div class="gv-card-info">
+                                    <p class="gv-card-label">Total Sales Orders</p>
+                                    <h3 class="gv-card-value"><t t-esc="state.dashboardData.total_sales_count"/></h3>
+                                </div>
+                                <div class="gv-card-icon-wrapper">
+                                    <div class="gv-card-icon"><i class="fa fa-shopping-cart"></i></div>
+                                </div>
+                            </div>
+                            <div class="gv-card-footer">
+                                <span><i class="fa fa-arrow-up text-success"></i> View Details</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Total Revenue -->
+                    <div class="col-xl-4 col-md-6">
+                        <div class="gv-card gv-card-revenue">
+                            <div class="gv-card-content">
+                                <div class="gv-card-info">
+                                    <p class="gv-card-label">Total Revenue</p>
+                                    <h3 class="gv-card-value">$<t t-esc="state.dashboardData.total_revenue"/></h3>
+                                </div>
+                                <div class="gv-card-icon-wrapper">
+                                    <div class="gv-card-icon"><i class="fa fa-money"></i></div>
+                                </div>
+                            </div>
+                            <div class="gv-card-footer">
+                                <span><i class="fa fa-line-chart text-success"></i> Updated Just Now</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Purchase Orders -->
+                    <div class="col-xl-4 col-md-6">
+                        <div class="gv-card gv-card-purchases" t-on-click="openPurchaseOrders">
+                            <div class="gv-card-content">
+                                <div class="gv-card-info">
+                                    <p class="gv-card-label">Purchase Orders</p>
+                                    <h3 class="gv-card-value"><t t-esc="state.dashboardData.total_purchase_count"/></h3>
+                                </div>
+                                <div class="gv-card-icon-wrapper">
+                                    <div class="gv-card-icon"><i class="fa fa-credit-card"></i></div>
+                                </div>
+                            </div>
+                            <div class="gv-card-footer">
+                                <span><i class="fa fa-arrow-right text-warning"></i> View Details</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Customers -->
+                    <div class="col-xl-4 col-md-6">
+                        <div class="gv-card gv-card-customers" t-on-click="openCustomers">
+                            <div class="gv-card-content">
+                                <div class="gv-card-info">
+                                    <p class="gv-card-label">Total Customers</p>
+                                    <h3 class="gv-card-value"><t t-esc="state.dashboardData.total_customers"/></h3>
+                                </div>
+                                <div class="gv-card-icon-wrapper">
+                                    <div class="gv-card-icon"><i class="fa fa-users"></i></div>
+                                </div>
+                            </div>
+                            <div class="gv-card-footer">
+                                <span><i class="fa fa-arrow-right text-primary"></i> View Details</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Vendors -->
+                    <div class="col-xl-4 col-md-6">
+                        <div class="gv-card gv-card-vendors" t-on-click="openVendors">
+                            <div class="gv-card-content">
+                                <div class="gv-card-info">
+                                    <p class="gv-card-label">Total Vendors</p>
+                                    <h3 class="gv-card-value"><t t-esc="state.dashboardData.total_vendors"/></h3>
+                                </div>
+                                <div class="gv-card-icon-wrapper">
+                                    <div class="gv-card-icon"><i class="fa fa-truck"></i></div>
+                                </div>
+                            </div>
+                            <div class="gv-card-footer">
+                                <span><i class="fa fa-arrow-right text-danger"></i> View Details</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Products -->
+                    <div class="col-xl-4 col-md-6">
+                        <div class="gv-card gv-card-products" t-on-click="openProducts">
+                            <div class="gv-card-content">
+                                <div class="gv-card-info">
+                                    <p class="gv-card-label">Total Products</p>
+                                    <h3 class="gv-card-value"><t t-esc="state.dashboardData.total_products"/></h3>
+                                </div>
+                                <div class="gv-card-icon-wrapper">
+                                    <div class="gv-card-icon"><i class="fa fa-cubes"></i></div>
+                                </div>
+                            </div>
+                            <div class="gv-card-footer">
+                                <span><i class="fa fa-arrow-right text-info"></i> View Details</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Total Expenses -->
+                    <div class="col-xl-4 col-md-6">
+                        <div class="gv-card gv-card-expenses" t-on-click="openExpenses">
+                            <div class="gv-card-content">
+                                <div class="gv-card-info">
+                                    <p class="gv-card-label">Total Expenses</p>
+                                    <h3 class="gv-card-value">$<t t-esc="state.dashboardData.total_expenses"/></h3>
+                                </div>
+                                <div class="gv-card-icon-wrapper">
+                                    <div class="gv-card-icon"><i class="fa fa-calculator"></i></div>
+                                </div>
+                            </div>
+                            <div class="gv-card-footer">
+                                <span><i class="fa fa-arrow-right text-rose" style="color: #f43f5e;"></i> View Details</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Expenses Table -->
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="gv-table-container">
+                            <div class="d-flex justify-content-between align-items-center mb-4">
+                                <h3 class="gv-table-title m-0">Recent Expenses</h3>
+                                <button class="btn btn-outline-success gv-btn-premium rounded-pill px-4" t-on-click="openAllExpenses">View All</button>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table gv-table align-middle">
+                                    <thead>
+                                        <tr>
+                                            <th>Description</th>
+                                            <th>Date</th>
+                                            <th>Amount</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <t t-foreach="state.dashboardData.recent_expenses" t-as="expense" t-key="expense.id">
+                                            <tr>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="gv-table-icon-circle me-3">
+                                                            <i class="fa fa-receipt text-success"></i>
+                                                        </div>
+                                                        <span class="fw-bold"><t t-esc="expense.name"/></span>
+                                                    </div>
+                                                </td>
+                                                <td class="text-muted"><t t-esc="expense.date"/></td>
+                                                <td class="fw-bold text-dark"><t t-esc="expense.total_amount_currency"/></td>
+                                                <td>
+                                                    <span t-attf-class="badge rounded-pill gv-badge {{ expense.state == 'approved' ? 'bg-success-subtle text-success' : 'bg-warning-subtle text-warning' }}">
+                                                        <t t-esc="expense.state"/>
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                        </t>
+                                        <tr t-if="!state.dashboardData.recent_expenses.length">
+                                            <td colspan="4" class="text-center text-muted py-5">
+                                                <i class="fa fa-inbox fa-3x mb-3 text-light"></i>
+                                                <p>No recent expenses found.</p>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+</templates>
