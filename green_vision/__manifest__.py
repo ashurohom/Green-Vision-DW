@@ -17,6 +17,7 @@
         "purchase",
         "account",
         "hr_expense",
+        "mrp",
     ],
 
     "data": [

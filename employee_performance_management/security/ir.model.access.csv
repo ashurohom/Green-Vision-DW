@@ -1,0 +1,14 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_epm_dashboard,epm.dashboard,model_epm_dashboard,base.group_user,1,1,1,1
+access_epm_kra,epm.kra,model_epm_kra,base.group_user,1,1,1,1
+access_epm_kpa,epm.kpa,model_epm_kpa,base.group_user,1,1,1,1
+access_epm_kpi,epm.kpi,model_epm_kpi,base.group_user,1,1,1,1
+access_epm_review_cycle,epm.review.cycle,model_epm_review_cycle,base.group_user,1,1,1,1
+access_epm_rating_scale,epm.rating.scale,model_epm_rating_scale,base.group_user,1,1,1,1
+access_epm_performance_template,epm.performance.template,model_epm_performance_template,base.group_user,1,1,1,1
+access_epm_employee_assignment,epm.employee.assignment,model_epm_employee_assignment,base.group_user,1,1,1,1
+access_epm_self_review,epm.self.review,model_epm_self_review,base.group_user,1,1,1,1
+access_epm_self_review_line,epm.self.review.line,model_epm_self_review_line,base.group_user,1,1,1,1
+access_epm_manager_review,epm.manager.review,model_epm_manager_review,base.group_user,1,1,1,1
+access_epm_final_evaluation,epm.final.evaluation,model_epm_final_evaluation,base.group_user,1,1,1,1
+access_epm_final_evaluation_line,epm.final.evaluation.line,model_epm_final_evaluation_line,base.group_user,1,1,1,1
