@@ -18,8 +18,8 @@ export class GreenVisionDashboard extends Component {
                 total_revenue: 0,
                 total_purchase_count: 0,
                 po_pending_count: 0,
-                total_receivable: 0,
-                total_pending: 0,
+                outstanding_receivable: 0,
+                outstanding_payable: 0,
                 total_customers: 0,
                 total_vendors: 0,
                 total_products: 0,
@@ -59,23 +59,23 @@ export class GreenVisionDashboard extends Component {
         });
     }
 
-    openReceivables() {
+    openOutstandingReceivables() {
         this.actionService.doAction({
             type: "ir.actions.act_window",
-            name: "Total Receivables",
-            res_model: "account.move",
-            views: [[false, "list"], [false, "form"]],
-            domain: [['move_type', '=', 'out_invoice'], ['state', '=', 'posted']],
-        });
-    }
-
-    openPendingReceivables() {
-        this.actionService.doAction({
-            type: "ir.actions.act_window",
-            name: "Pending Receivables",
+            name: "Outstanding Receivables",
             res_model: "account.move",
             views: [[false, "list"], [false, "form"]],
             domain: [['move_type', '=', 'out_invoice'], ['state', '=', 'posted'], ['payment_state', 'in', ['not_paid', 'partial']]],
+        });
+    }
+
+    openOutstandingPayables() {
+        this.actionService.doAction({
+            type: "ir.actions.act_window",
+            name: "Outstanding Payables",
+            res_model: "account.move",
+            views: [[false, "list"], [false, "form"]],
+            domain: [['move_type', '=', 'in_invoice'], ['state', '=', 'posted'], ['payment_state', 'in', ['not_paid', 'partial']]],
         });
     }
 

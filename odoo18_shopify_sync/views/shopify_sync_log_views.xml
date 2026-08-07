@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_shopify_sync_log_tree" model="ir.ui.view">
+        <field name="name">shopify.sync.log.tree</field>
+        <field name="model">shopify.sync.log</field>
+        <field name="arch" type="xml">
+            <list string="Sync Logs" create="false" edit="false">
+                <field name="date"/>
+                <field name="instance_id"/>
+                <field name="sync_type"/>
+                <field name="status" widget="badge" 
+                       decoration-success="status == 'success'" 
+                       decoration-warning="status == 'partial'" 
+                       decoration-danger="status == 'failed'"/>
+                <field name="imported_count"/>
+                <field name="skipped_count"/>
+                <field name="failed_count"/>
+                <field name="duration" widget="float_time"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_shopify_sync_log_form" model="ir.ui.view">
+        <field name="name">shopify.sync.log.form</field>
+        <field name="model">shopify.sync.log</field>
+        <field name="arch" type="xml">
+            <form string="Sync Log" create="false" edit="false">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="instance_id"/>
+                            <field name="sync_type"/>
+                            <field name="status"/>
+                            <field name="date"/>
+                        </group>
+                        <group>
+                            <field name="imported_count"/>
+                            <field name="skipped_count"/>
+                            <field name="failed_count"/>
+                            <field name="duration" widget="float_time"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Error Message" invisible="not error_message">
+                            <field name="error_message"/>
+                        </page>
+                        <page string="API Response" invisible="not api_response">
+                            <field name="api_response"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_shopify_sync_log" model="ir.actions.act_window">
+        <field name="name">Sync Logs</field>
+        <field name="res_model">shopify.sync.log</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <menuitem id="menu_shopify_sync_log" 
+              name="Sync Logs" 
+              parent="menu_shopify_operations" 
+              action="action_shopify_sync_log" 
+              sequence="30"/>
+</odoo>

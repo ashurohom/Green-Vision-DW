@@ -10,5 +10,6 @@
     <menuitem id="menu_gv_dashboard"
               name="Dashboard"
               action="action_green_vision_dashboard"
-              sequence="1"/>
+              sequence="1"
+              groups="green_vision.group_green_vision_dashboard"/>
 </odoo>

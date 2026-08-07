@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_product_product_form_shopify" model="ir.ui.view">
+        <field name="name">product.product.form.shopify</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_normal_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page name="shopify" string="Shopify">
+                    <group>
+                        <field name="shopify_product_id" readonly="1"/>
+                        <field name="shopify_variant_id" readonly="1"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

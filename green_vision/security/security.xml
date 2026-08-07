@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <!-- Module Category -->
+        <record id="module_category_green_vision" model="ir.module.category">
+            <field name="name">Green Vision</field>
+            <field name="description">Access rights for Green Vision modules.</field>
+            <field name="sequence">100</field>
+        </record>
+
+        <!-- Dashboard Access Group -->
+        <record id="group_green_vision_dashboard" model="res.groups">
+            <field name="name">Dashboard Access</field>
+            <field name="category_id" ref="green_vision.module_category_green_vision"/>
+            <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+        </record>
+    </data>
+</odoo>

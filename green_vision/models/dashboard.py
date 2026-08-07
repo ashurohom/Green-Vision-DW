@@ -22,10 +22,13 @@ class GreenVisionDashboard(models.AbstractModel):
         # Purchase Order Approval Pending
         po_pending_count = self.env['purchase.order'].search_count([('state', 'in', ['draft', 'sent'])])
 
-        # Receivable and Pending Amount
-        invoices = self.env['account.move'].search([('move_type', '=', 'out_invoice'), ('state', '=', 'posted')])
-        total_receivable = sum(invoices.mapped('amount_total'))
-        total_pending = sum(invoices.mapped('amount_residual'))
+        # Outstanding Receivable Amount (Pending Customer Invoices)
+        out_invoices = self.env['account.move'].search([('move_type', '=', 'out_invoice'), ('state', '=', 'posted')])
+        outstanding_receivable = sum(out_invoices.mapped('amount_residual'))
+
+        # Outstanding Payable Amount (Pending Vendor Bills)
+        in_invoices = self.env['account.move'].search([('move_type', '=', 'in_invoice'), ('state', '=', 'posted')])
+        outstanding_payable = sum(in_invoices.mapped('amount_residual'))
 
         # Total Customers & Vendors
         total_customers = self.env['res.partner'].search_count([('customer_rank', '>', 0)])
@@ -51,8 +54,8 @@ class GreenVisionDashboard(models.AbstractModel):
             'total_revenue': total_revenue,
             'total_purchase_count': total_purchase_count,
             'po_pending_count': po_pending_count,
-            'total_receivable': total_receivable,
-            'total_pending': total_pending,
+            'outstanding_receivable': outstanding_receivable,
+            'outstanding_payable': outstanding_payable,
             'total_customers': total_customers,
             'total_vendors': total_vendors,
             'total_products': total_products,

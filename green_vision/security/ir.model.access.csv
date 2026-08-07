@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_green_vision_dashboard,green.vision.dashboard,model_green_vision_dashboard,group_green_vision_dashboard,1,0,0,0
