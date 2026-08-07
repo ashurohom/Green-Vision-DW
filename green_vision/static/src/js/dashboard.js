@@ -14,8 +14,12 @@ export class GreenVisionDashboard extends Component {
         this.state = useState({
             dashboardData: {
                 total_sales_count: 0,
+                so_pending_count: 0,
                 total_revenue: 0,
                 total_purchase_count: 0,
+                po_pending_count: 0,
+                total_receivable: 0,
+                total_pending: 0,
                 total_customers: 0,
                 total_vendors: 0,
                 total_products: 0,
@@ -45,6 +49,36 @@ export class GreenVisionDashboard extends Component {
         });
     }
 
+    openSOPending() {
+        this.actionService.doAction({
+            type: "ir.actions.act_window",
+            name: "Sales Orders Pending",
+            res_model: "sale.order",
+            views: [[false, "list"], [false, "form"]],
+            domain: [['state', 'in', ['draft', 'sent']]],
+        });
+    }
+
+    openReceivables() {
+        this.actionService.doAction({
+            type: "ir.actions.act_window",
+            name: "Total Receivables",
+            res_model: "account.move",
+            views: [[false, "list"], [false, "form"]],
+            domain: [['move_type', '=', 'out_invoice'], ['state', '=', 'posted']],
+        });
+    }
+
+    openPendingReceivables() {
+        this.actionService.doAction({
+            type: "ir.actions.act_window",
+            name: "Pending Receivables",
+            res_model: "account.move",
+            views: [[false, "list"], [false, "form"]],
+            domain: [['move_type', '=', 'out_invoice'], ['state', '=', 'posted'], ['payment_state', 'in', ['not_paid', 'partial']]],
+        });
+    }
+
     openPurchaseOrders() {
         this.actionService.doAction({
             type: "ir.actions.act_window",
@@ -52,6 +86,16 @@ export class GreenVisionDashboard extends Component {
             res_model: "purchase.order",
             views: [[false, "list"], [false, "form"]],
             domain: [['state', 'in', ['purchase', 'done']]],
+        });
+    }
+
+    openPOPending() {
+        this.actionService.doAction({
+            type: "ir.actions.act_window",
+            name: "Purchase Orders Pending",
+            res_model: "purchase.order",
+            views: [[false, "list"], [false, "form"]],
+            domain: [['state', 'in', ['draft', 'sent']]],
         });
     }
 

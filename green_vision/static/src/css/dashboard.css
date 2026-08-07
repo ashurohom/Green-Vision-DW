@@ -86,8 +86,12 @@
 
 /* Gradients for Card Left Borders */
 .gv-card-sales { border-left: 5px solid #3b82f6; }
+.gv-card-sales-pending { border-left: 5px solid #14b8a6; }
 .gv-card-revenue { border-left: 5px solid #10b981; }
+.gv-card-receivables { border-left: 5px solid #059669; }
+.gv-card-pending-receivables { border-left: 5px solid #f97316; }
 .gv-card-purchases { border-left: 5px solid #f59e0b; }
+.gv-card-po-pending { border-left: 5px solid #6366f1; }
 .gv-card-customers { border-left: 5px solid #8b5cf6; }
 .gv-card-vendors { border-left: 5px solid #ef4444; }
 .gv-card-products { border-left: 5px solid #06b6d4; }
@@ -114,8 +118,12 @@
 }
 
 .gv-card-sales .gv-card-icon { color: #3b82f6; background: linear-gradient(135deg, #eff6ff, #dbeafe); }
+.gv-card-sales-pending .gv-card-icon { color: #14b8a6; background: linear-gradient(135deg, #ccfbf1, #99f6e4); }
 .gv-card-revenue .gv-card-icon { color: #10b981; background: linear-gradient(135deg, #ecfdf5, #d1fae5); }
+.gv-card-receivables .gv-card-icon { color: #059669; background: linear-gradient(135deg, #d1fae5, #a7f3d0); }
+.gv-card-pending-receivables .gv-card-icon { color: #f97316; background: linear-gradient(135deg, #ffedd5, #fed7aa); }
 .gv-card-purchases .gv-card-icon { color: #f59e0b; background: linear-gradient(135deg, #fffbeb, #fef3c7); }
+.gv-card-po-pending .gv-card-icon { color: #6366f1; background: linear-gradient(135deg, #e0e7ff, #c7d2fe); }
 .gv-card-customers .gv-card-icon { color: #8b5cf6; background: linear-gradient(135deg, #f5f3ff, #ede9fe); }
 .gv-card-vendors .gv-card-icon { color: #ef4444; background: linear-gradient(135deg, #fef2f2, #fee2e2); }
 .gv-card-products .gv-card-icon { color: #06b6d4; background: linear-gradient(135deg, #ecfeff, #cffafe); }

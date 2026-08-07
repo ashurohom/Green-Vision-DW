@@ -9,12 +9,23 @@ class GreenVisionDashboard(models.AbstractModel):
         # Total Sales Order
         total_sales_count = self.env['sale.order'].search_count([('state', 'in', ['sale', 'done'])])
 
+        # Sales Order Approval Pending
+        so_pending_count = self.env['sale.order'].search_count([('state', 'in', ['draft', 'sent'])])
+
         # Total Revenue (Using Sales for simplicity)
         sales = self.env['sale.order'].search([('state', 'in', ['sale', 'done'])])
         total_revenue = sum(sales.mapped('amount_total'))
 
         # Total Purchase Orders
         total_purchase_count = self.env['purchase.order'].search_count([('state', 'in', ['purchase', 'done'])])
+
+        # Purchase Order Approval Pending
+        po_pending_count = self.env['purchase.order'].search_count([('state', 'in', ['draft', 'sent'])])
+
+        # Receivable and Pending Amount
+        invoices = self.env['account.move'].search([('move_type', '=', 'out_invoice'), ('state', '=', 'posted')])
+        total_receivable = sum(invoices.mapped('amount_total'))
+        total_pending = sum(invoices.mapped('amount_residual'))
 
         # Total Customers & Vendors
         total_customers = self.env['res.partner'].search_count([('customer_rank', '>', 0)])
@@ -36,8 +47,12 @@ class GreenVisionDashboard(models.AbstractModel):
 
         return {
             'total_sales_count': total_sales_count,
+            'so_pending_count': so_pending_count,
             'total_revenue': total_revenue,
             'total_purchase_count': total_purchase_count,
+            'po_pending_count': po_pending_count,
+            'total_receivable': total_receivable,
+            'total_pending': total_pending,
             'total_customers': total_customers,
             'total_vendors': total_vendors,
             'total_products': total_products,

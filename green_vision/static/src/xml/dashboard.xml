@@ -18,7 +18,7 @@
             <div class="container-fluid px-4 gv-main-content">
                 <div class="row g-4 mb-5">
                     <!-- Total Sales -->
-                    <div class="col-xl-4 col-md-6">
+                    <div class="col-xl-3 col-md-4 col-sm-6">
                         <div class="gv-card gv-card-sales" t-on-click="openSalesOrders">
                             <div class="gv-card-content">
                                 <div class="gv-card-info">
@@ -35,8 +35,26 @@
                         </div>
                     </div>
 
+                    <!-- Sales Pending -->
+                    <div class="col-xl-3 col-md-4 col-sm-6">
+                        <div class="gv-card gv-card-sales-pending" t-on-click="openSOPending">
+                            <div class="gv-card-content">
+                                <div class="gv-card-info">
+                                    <p class="gv-card-label">SO Approval Pending</p>
+                                    <h3 class="gv-card-value"><t t-esc="state.dashboardData.so_pending_count"/></h3>
+                                </div>
+                                <div class="gv-card-icon-wrapper">
+                                    <div class="gv-card-icon"><i class="fa fa-clock-o"></i></div>
+                                </div>
+                            </div>
+                            <div class="gv-card-footer">
+                                <span><i class="fa fa-hourglass-half text-warning"></i> View Details</span>
+                            </div>
+                        </div>
+                    </div>
+
                     <!-- Total Revenue -->
-                    <div class="col-xl-4 col-md-6">
+                    <div class="col-xl-3 col-md-4 col-sm-6">
                         <div class="gv-card gv-card-revenue">
                             <div class="gv-card-content">
                                 <div class="gv-card-info">
@@ -53,16 +71,34 @@
                         </div>
                     </div>
 
-                    <!-- Purchase Orders -->
-                    <div class="col-xl-4 col-md-6">
-                        <div class="gv-card gv-card-purchases" t-on-click="openPurchaseOrders">
+                    <!-- Total Receivables -->
+                    <div class="col-xl-3 col-md-4 col-sm-6">
+                        <div class="gv-card gv-card-receivables" t-on-click="openReceivables">
                             <div class="gv-card-content">
                                 <div class="gv-card-info">
-                                    <p class="gv-card-label">Purchase Orders</p>
-                                    <h3 class="gv-card-value"><t t-esc="state.dashboardData.total_purchase_count"/></h3>
+                                    <p class="gv-card-label">Total Receivable</p>
+                                    <h3 class="gv-card-value">$<t t-esc="state.dashboardData.total_receivable"/></h3>
                                 </div>
                                 <div class="gv-card-icon-wrapper">
-                                    <div class="gv-card-icon"><i class="fa fa-credit-card"></i></div>
+                                    <div class="gv-card-icon"><i class="fa fa-bank"></i></div>
+                                </div>
+                            </div>
+                            <div class="gv-card-footer">
+                                <span><i class="fa fa-arrow-right text-success"></i> View Details</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pending Receivables -->
+                    <div class="col-xl-3 col-md-4 col-sm-6">
+                        <div class="gv-card gv-card-pending-receivables" t-on-click="openPendingReceivables">
+                            <div class="gv-card-content">
+                                <div class="gv-card-info">
+                                    <p class="gv-card-label">Pending Receivable</p>
+                                    <h3 class="gv-card-value">$<t t-esc="state.dashboardData.total_pending"/></h3>
+                                </div>
+                                <div class="gv-card-icon-wrapper">
+                                    <div class="gv-card-icon"><i class="fa fa-exclamation-circle"></i></div>
                                 </div>
                             </div>
                             <div class="gv-card-footer">
@@ -71,8 +107,62 @@
                         </div>
                     </div>
 
+                    <!-- Purchase Orders -->
+                    <div class="col-xl-3 col-md-4 col-sm-6">
+                        <div class="gv-card gv-card-purchases" t-on-click="openPurchaseOrders">
+                            <div class="gv-card-content">
+                                <div class="gv-card-info">
+                                    <p class="gv-card-label">Purchase Orders</p>
+                                    <h3 class="gv-card-value"><t t-esc="state.dashboardData.total_purchase_count"/></h3>
+                                </div>
+                                <div class="gv-card-icon-wrapper">
+                                    <div class="gv-card-icon"><i class="fa fa-shopping-basket"></i></div>
+                                </div>
+                            </div>
+                            <div class="gv-card-footer">
+                                <span><i class="fa fa-arrow-right text-warning"></i> View Details</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Purchase Orders Pending -->
+                    <div class="col-xl-3 col-md-4 col-sm-6">
+                        <div class="gv-card gv-card-po-pending" t-on-click="openPOPending">
+                            <div class="gv-card-content">
+                                <div class="gv-card-info">
+                                    <p class="gv-card-label">PO Approval Pending</p>
+                                    <h3 class="gv-card-value"><t t-esc="state.dashboardData.po_pending_count"/></h3>
+                                </div>
+                                <div class="gv-card-icon-wrapper">
+                                    <div class="gv-card-icon"><i class="fa fa-file-text-o"></i></div>
+                                </div>
+                            </div>
+                            <div class="gv-card-footer">
+                                <span><i class="fa fa-hourglass-half text-info"></i> View Details</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Total Expenses -->
+                    <div class="col-xl-3 col-md-4 col-sm-6">
+                        <div class="gv-card gv-card-expenses" t-on-click="openExpenses">
+                            <div class="gv-card-content">
+                                <div class="gv-card-info">
+                                    <p class="gv-card-label">Total Expenses</p>
+                                    <h3 class="gv-card-value">$<t t-esc="state.dashboardData.total_expenses"/></h3>
+                                </div>
+                                <div class="gv-card-icon-wrapper">
+                                    <div class="gv-card-icon"><i class="fa fa-calculator"></i></div>
+                                </div>
+                            </div>
+                            <div class="gv-card-footer">
+                                <span><i class="fa fa-arrow-right text-rose" style="color: #f43f5e;"></i> View Details</span>
+                            </div>
+                        </div>
+                    </div>
+
                     <!-- Customers -->
-                    <div class="col-xl-4 col-md-6">
+                    <div class="col-xl-3 col-md-4 col-sm-6">
                         <div class="gv-card gv-card-customers" t-on-click="openCustomers">
                             <div class="gv-card-content">
                                 <div class="gv-card-info">
@@ -90,7 +180,7 @@
                     </div>
 
                     <!-- Vendors -->
-                    <div class="col-xl-4 col-md-6">
+                    <div class="col-xl-3 col-md-4 col-sm-6">
                         <div class="gv-card gv-card-vendors" t-on-click="openVendors">
                             <div class="gv-card-content">
                                 <div class="gv-card-info">
@@ -108,7 +198,7 @@
                     </div>
 
                     <!-- Products -->
-                    <div class="col-xl-4 col-md-6">
+                    <div class="col-xl-3 col-md-4 col-sm-6">
                         <div class="gv-card gv-card-products" t-on-click="openProducts">
                             <div class="gv-card-content">
                                 <div class="gv-card-info">
@@ -121,24 +211,6 @@
                             </div>
                             <div class="gv-card-footer">
                                 <span><i class="fa fa-arrow-right text-info"></i> View Details</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Total Expenses -->
-                    <div class="col-xl-4 col-md-6">
-                        <div class="gv-card gv-card-expenses" t-on-click="openExpenses">
-                            <div class="gv-card-content">
-                                <div class="gv-card-info">
-                                    <p class="gv-card-label">Total Expenses</p>
-                                    <h3 class="gv-card-value">$<t t-esc="state.dashboardData.total_expenses"/></h3>
-                                </div>
-                                <div class="gv-card-icon-wrapper">
-                                    <div class="gv-card-icon"><i class="fa fa-calculator"></i></div>
-                                </div>
-                            </div>
-                            <div class="gv-card-footer">
-                                <span><i class="fa fa-arrow-right text-rose" style="color: #f43f5e;"></i> View Details</span>
                             </div>
                         </div>
                     </div>
